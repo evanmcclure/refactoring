@@ -6,6 +6,15 @@ import "math"
 // variables that can be read in a debugger by being set to a copy
 // of the expression being broken apart. It's the inverse of
 // Inline Variable.
+//
+// Mechanics:
+//
+//   1. Don't inline if there will be side-effects in the part of the
+//      expression being extracted.
+//   2. Declare an immutable variable.
+//   3. Set the value of the new variable to be the part of the
+//      expression being extracted.
+//   4. Replace the original expression with the new variable.
 
 type Order struct {
 	Quantity  float64

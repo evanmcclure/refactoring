@@ -5,9 +5,17 @@ package main
 // calling code to call the new function instead, done in three
 // different ways:
 //
-// Case 1) No variables out of scope
-// Case 2) Using local variables
-// Case 3) Reassigning a local variable
+//   Case A) No variables out of scope
+//   Case B) Using local variables
+//   Case C) Reassigning a local variable
+//
+// Mechanics:
+//
+//   1. Create a new function.
+//   2. Name it after the intent of what the function does.
+//   3. Copy the code to be extracted into the new function.
+//   4. Create parameters from locally scoped variables.
+//   5. Replace the extracted code with a call to the new function.
 
 import (
 	"log"

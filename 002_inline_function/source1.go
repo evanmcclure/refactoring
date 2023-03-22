@@ -9,6 +9,13 @@ package main
 // Functions shouldn't be inlined when there is recursion, multiple
 // return points, or when the function is a method being inlined
 // into another object and you don't have accessors.
+//
+// Mechanics:
+//
+//   1. Don't inline if this function is a polymorphic method.
+//   2. Find all of the callers of the function.
+//   3. Replace each call with the body of the function.
+//   4. Remove the function definition.
 
 type Driver struct {
 	NumberOfLateDeliveries int
